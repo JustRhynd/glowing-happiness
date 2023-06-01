@@ -1,0 +1,48 @@
+body, html {
+  width: 100vw;
+  height: 100vh;
+  margin: 30 10;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  background: Black;
+}
+
+.letters-wave {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  height: 48px;
+  display: flex;
+  align-items: flex-box;
+  text-transform: uppercase;
+  align-items: center;
+}
+
+
+.defaut1 {
+  font-family: sans-serif;
+  font-style: italic;
+  font-size: medium;
+ -webkit-animation: rainbow 5s infinite; 
+ align-items: fle;
+}
+
+@-webkit-keyframes rainbow{
+  0%{color: orange;}  
+  10%{color: purple;} 
+  20%{color: red;}
+  30%{color: CadetBlue;}
+  40%{color: yellow;}
+  50%{color: coral;}
+  60%{color: green;}
+  70%{color: cyan;}
+  80%{color: DeepPink;}
+  90%{color: DodgerBlue;}
+  100%{color: orange;}
+}
+
+
