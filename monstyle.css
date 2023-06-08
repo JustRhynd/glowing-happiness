@@ -1,0 +1,52 @@
+* {
+    box-sizing:border-box;
+  }
+
+  .choix{width: 100%;
+         background-color: antiquewhite;
+         margin: auto;
+         padding: 2rem;
+
+  }
+
+  .gauche, .droite{
+      padding: 2rem;
+      width: 50%;
+      float:left;
+      height:min(50vw,50vh);
+  }
+  .gauche{
+
+      background-color: lightblue;
+      border: 2px solid antiquewhite;
+
+  }
+
+  .droite{
+      background-color: rgb(214, 226, 104);
+      border: 2px solid antiquewhite;
+  }
+  h1{
+      font-size:min(5vh,8vw);
+
+  }
+  p{
+      font-size:min(3vh,5vw);
+  }
+
+
+  .gauche img{
+    max-width: 40%;
+    max-height: 40%;
+  }
+
+  .droite img{
+    max-width: 40%;
+    max-height: 40%;  
+  }
+
+  @media screen and (max-width:500px) {
+    .gauche, .droite {
+      width:100%;
+    }
+}
