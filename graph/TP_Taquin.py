@@ -115,3 +115,9 @@ def afficher_solution(depart):
     for s in construire_solution(depart):
         for ligne in s : 
             print(ligne)
+
+
+
+
+
+print(parcours(taquin_initial))
