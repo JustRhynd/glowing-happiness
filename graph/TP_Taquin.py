@@ -1,5 +1,7 @@
 TAILLE = 3
 
+from queue import Queue
+
 taquin_final = ((1,2,3),(4,5,6),(7,8,0))
 
 taquin_initial = ((2,6,3),(7,0,5),(4,1,8))
@@ -91,9 +93,29 @@ def parcours(depart):
     - comme clés : les configurations accessibles depuis le taquin depart
     - comme valeurs : la configuration immédiatement précédente'''
     dist = {depart:None}
-    # à compléter
-    
+    for i 
+    # à compléter    
     return dist
+
+
+def parcours_largeur(epart):
+    '''parcours en largeur d'un graphe g depuis un sommet depart
+    la fonction renvoie un dictionnaire avec
+    - comme clés : les sommets accessibles depuis depart
+    - comme valeurs : la distance au sommet depart'''
+    dist = {depart:0}
+    file = Queue()
+    file.put(depart)
+    while not file.empty():
+        s = file.get()  #on retire un sommet de la file
+        for v in g.voisins(s): 
+            if v not in dist:
+                #  v (voisin de s) est inscrit dans le dictionnaire
+                dist[v] = dist[s] + 1 
+                # et on ajoute v dans la file
+                file.put(v)
+    return dist
+
 
 def construire_solution(depart):
     """la fonction renvoie la liste des configurations depuis depart jusqu'au taquin final"""
