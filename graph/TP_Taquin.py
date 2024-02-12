@@ -13,7 +13,7 @@ def format_list(taquin_tuple):
 def format_tuple(taquin_list): 
     return tuple( tuple( taquin_list[i][j] for j in range(TAILLE)) for i in range(TAILLE))
 
-
+ 
 def haut(taquin,i0,j0):
     """ i0, j0 sont les coordonnées du 0 dans taquin (qui est un tuple)
     la fonction renvoie un nouveau taquin au format tuple dans lequel le 0 a bougé vers le haut """
