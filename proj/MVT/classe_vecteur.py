@@ -32,16 +32,18 @@ class Vecteur:
         self.y = y
     
     def est_nul(self):
-        # A modifier
-        return True
+        if self.x == 0 and self.y == 0 :
+            return True
+        else :
+        return False
     
     def vect_nul(self):
-        # A faire
-        pass
+        self.x = 0
+        self.y = 0
+        return self.x, self.y
     
     def norme(self):
-        # A modifier
-        return 0
+        return sqrt(self.x**2 + self.y**2)
         
     def somme(self, v):
         self.x = self.x + v.x
@@ -49,20 +51,24 @@ class Vecteur:
         return self 
     
     def diff(self, v):
-        # A faire
-        pass
+        self.x = self.x - v.x
+        self.y = self.y - v.y
+        return self 
     
     def oppose(self):
-        # A faire
-        pass
+        self.x = -self.x
+        self.y = -self.y
+        return self.x, self.y
         
     def prodk(self, k):
-        ## A faire
-        pass
+        self.x = k*self.x
+        self.y = k*self.y
+        return self.x, self.y
 
     def affectation(self, v):
-        # A faire
-        pass
+        self.x = v.x
+        self.y = v.y
+        return self.x, self.y
     
     def est_egal(self, v):
         return self.x == v.x and self.y == v.y
