@@ -26,7 +26,7 @@ class Animal:
         distance : revoie la distance avec un autre Animal
         
     """
-    v_max = 4
+    v_max = 2
     v_init = 2
     force_max = 1
     
@@ -50,22 +50,25 @@ class Animal:
     def force_alea(self):
         self.force.x = random() - 0.5
         self.force.y = random() - 0.5
-        return self.force
-        
-        # On maximisera la force aléatoire exercée, décommenter les lignes suivantes
+
         if self.force.norme() != 0 :
             self.force.prodk(self.force_max/self.force.norme())
+
+        return self.force
     
     def maj_position(self):
         self.force_alea()            # test avec une force aléatoire (question 2b) 
         self.position.x += self.vitesse.x
         self.position.y += self.vitesse.y
+        print(self.vitesse.x, self.vitesse.y)
         if self.position.x < 0 or self.position.x > self.l_univers :
             self.vitesse.x = -self.vitesse.x
         if self.position.y < 0 or self.position.y > self.h_univers :
             self.vitesse.y = -self.vitesse.y
         self.vitesse.x += self.force.x
         self.vitesse.y += self.force.y
+        if self.vitesse.norme() > self.v_max :
+            self.vitesse.prodk(self.v_max/self.vitesse.norme())
         
 
         return self.position
