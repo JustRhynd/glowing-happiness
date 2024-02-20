@@ -57,7 +57,7 @@ class Nuee:
         """Met à jour la position de tous les animaux de la nuée"""
         for animal in self.essaim:
             animal.maj_position()
-        retrn self.essaim
+        return self.essaim
 
 
 
