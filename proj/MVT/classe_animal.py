@@ -50,15 +50,17 @@ class Animal:
     def force_alea(self):
         
 
-        return
+        pass
         
         # On maximisera la force aléatoire exercée, décommenter les lignes suivantes
         if self.force.norme() != 0 :
             self.force.prodk(self.force_max/self.force.norme())
     
     def maj_position(self):
-        self.force_alea()            # test avec une force aléatoire (question 2b) 
-        pass
+        #self.force_alea()            # test avec une force aléatoire (question 2b) 
+        self.position.x += self.vitesse.x
+        self.position.y += self.vitesse.y
+        return self.position
    
     def distance(self, autre):
         # A compléter
