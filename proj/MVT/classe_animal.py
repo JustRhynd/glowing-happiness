@@ -61,8 +61,7 @@ class Animal:
         return self.position
    
     def distance(self, autre):
-        # A compléter
-        return 
+        return sqrt((self.position.x - autre.position.x)**2 + (self.position.y - autre.position.y)**2)
     
     def __repr__(self):
         chaine = "Position : (" + str(self.position.x) + " , " + str(self.position.y) + ")\n"
