@@ -48,8 +48,6 @@ class Animal:
         self.force = Vecteur(0, 0)
         
     def force_alea(self):
-        
-
         pass
         
         # On maximisera la force aléatoire exercée, décommenter les lignes suivantes
