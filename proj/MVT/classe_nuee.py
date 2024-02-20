@@ -41,10 +41,13 @@ class Nuee:
     def __init__(self,nombre, l_univers, h_univers):
         self.essaim = []
         # Finir la construction de l'essaim
-
+        for i in range(nombre):
+            self.essaim.append(Animal(l_univers, h_univers))
         # trois tableaux contiendront les indices des voisins de chaque animal
+        
         # le constructeur initialise ces tableaux, 
         # qui seront mis à jour avec la méthode voisins_update
+            
         self.voisins_proches = [[] for i in range(nombre)]
         self.voisins_moyens = [[] for i in range(nombre)]
         self.voisins_distants   = [[] for i in range(nombre)]
@@ -52,8 +55,9 @@ class Nuee:
 
     def mouvement(self):
         """Met à jour la position de tous les animaux de la nuée"""
-        # A compléter
-        pass
+        for animal in self.essaim:
+            animal.maj_position()
+        retrn self.essaim
 
 
 
