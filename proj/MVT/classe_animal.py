@@ -48,7 +48,7 @@ class Animal:
         self.force = Vecteur(0, 0)
         
     def force_alea(self):
-        # Utilisée uniquement pour tester le déplacement d'un animal
+        
         pass
         
         # On maximisera la force aléatoire exercée, décommenter les lignes suivantes
