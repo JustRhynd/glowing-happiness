@@ -41,8 +41,8 @@ class Animal:
         self.vitesse = Vecteur(0, 0)
         # Modifier les deux lignes après le while
         while self.vitesse.est_nul() :          # génération d'une vitesse aléatoire
-            self.vitesse.x = randint(-self.vitesse.x, self.v_max.x)
-            self.vitesse.y = randint(-self.vitesse.y, self.v_max.y)
+            self.vitesse.x = random()
+            self.vitesse.y = random()
         self.vitesse.prodk(self.v_init/self.vitesse.norme()) # on met la norme de la vitesse à v_init
         self.perception = [30, 100, 200]     # proche, moyen, distant
         self.force = Vecteur(0, 0)

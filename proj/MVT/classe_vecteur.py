@@ -35,7 +35,7 @@ class Vecteur:
         if self.x == 0 and self.y == 0 :
             return True
         else :
-        return False
+            return False
     
     def vect_nul(self):
         self.x = 0
