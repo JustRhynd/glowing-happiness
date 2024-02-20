@@ -26,9 +26,9 @@ class Animal:
         distance : revoie la distance avec un autre Animal
         
     """
-    v_max = 2
+    v_max = 4
     v_init = 2
-    force_max = 1
+    force_max = 0.5
     
     def __init__(self, l_univers, h_univers):
         self.taille = 2
