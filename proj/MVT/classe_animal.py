@@ -60,7 +60,6 @@ class Animal:
         self.force_alea()            # test avec une force aléatoire (question 2b) 
         self.position.x += self.vitesse.x
         self.position.y += self.vitesse.y
-        print(self.vitesse.x, self.vitesse.y)
         if self.position.x < 0 or self.position.x > self.l_univers :
             self.vitesse.x = -self.vitesse.x
         if self.position.y < 0 or self.position.y > self.h_univers :
@@ -74,7 +73,7 @@ class Animal:
         return self.position
    
     def distance(self, autre):
-        return sqrt((self.position.x - autre.position.x)**2 + (self.position.y - autre.position.y)**2)
+        return sqrt((autre.position.x - self.position.x)**2 + (autre.position.y - self.position.y)**2)
     
     def __repr__(self):
         chaine = "Position : (" + str(self.position.x) + " , " + str(self.position.y) + ")\n"

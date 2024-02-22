@@ -43,10 +43,6 @@ class Nuee:
         # Finir la construction de l'essaim
         for i in range(nombre):
             self.essaim.append(Animal(l_univers, h_univers))
-        # trois tableaux contiendront les indices des voisins de chaque animal
-        
-        # le constructeur initialise ces tableaux, 
-        # qui seront mis à jour avec la méthode voisins_update
             
         self.voisins_proches = [[] for i in range(nombre)]
         self.voisins_moyens = [[] for i in range(nombre)]
@@ -69,7 +65,20 @@ class Nuee:
         de sorte que les animaux voisins de l'animal d'indice 'i'
         aient leurs indices stockés dans voisins[i]
         """
-        # A compléter
+        for i in range(1, len(self.essaim)):
+            dist = classe_animal.distance(self.essaim[0], self.essaim[i])
+
+            if animal.perception[0] > dist:
+                self.voisins_proches.append(self.essaim[i])
+
+            elif animal.perception[1] > dist:
+                self.voisins_proches.append(self.essaim[i])
+
+
+            elif animal.perception[2] > dist:    
+                self.voisins_proches.append(self.essaim[i])
+        print(self.voisins_proches)
+
 
 
     def separation(self, indice_animal):
