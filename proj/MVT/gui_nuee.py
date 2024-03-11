@@ -9,7 +9,7 @@ from classe_nuee import *
 LARGEUR_FENETRE = 1300
 HAUTEUR_FENETRE = 700
 RAFRAICHISSEMENT = 0.01
-AFFICHE_VOISINS = True 
+AFFICHE_VOISINS = True
 
 
 def animate_ball(nuee):
