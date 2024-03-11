@@ -53,6 +53,7 @@ class Nuee:
         """Met à jour la position de tous les animaux de la nuée"""
         for animal in self.essaim:
             animal.maj_position()
+        self.voisins_update()
         return self.essaim
 
 
@@ -66,18 +67,17 @@ class Nuee:
         aient leurs indices stockés dans voisins[i]
         """
         for i in range(1, len(self.essaim)):
-            dist = classe_animal.distance(self.essaim[0], self.essaim[i])
+            dist = self.essaim[0].distance(self.essaim[i])
 
-            if animal.perception[0] > dist:
+            if self.essaim[0].perception[0] > dist:
                 self.voisins_proches[0].append(self.essaim[i])
 
-            elif animal.perception[1] > dist:
+            elif self.essaim[0].perception[1] > dist:
                 self.voisins_moyens[0].append(self.essaim[i])
 
 
-            elif animal.perception[2] > dist:    
+            elif self.essaim[0].perception[2] > dist:
                 self.voisins_distants[0].append(self.essaim[i])
-        print(self.voisins_proches)
 
 
 
