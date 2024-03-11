@@ -69,14 +69,14 @@ class Nuee:
             dist = classe_animal.distance(self.essaim[0], self.essaim[i])
 
             if animal.perception[0] > dist:
-                self.voisins_proches.append(self.essaim[i])
+                self.voisins_proches[0].append(self.essaim[i])
 
             elif animal.perception[1] > dist:
-                self.voisins_proches.append(self.essaim[i])
+                self.voisins_moyens[0].append(self.essaim[i])
 
 
             elif animal.perception[2] > dist:    
-                self.voisins_proches.append(self.essaim[i])
+                self.voisins_distants[0].append(self.essaim[i])
         print(self.voisins_proches)
 
 
