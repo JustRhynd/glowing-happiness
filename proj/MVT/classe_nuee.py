@@ -43,7 +43,7 @@ class Nuee:
         # Finir la construction de l'essaim
         for i in range(nombre):
             self.essaim.append(Animal(l_univers, h_univers))
-            
+
         self.voisins_proches = [[] for i in range(nombre)]
         self.voisins_moyens = [[] for i in range(nombre)]
         self.voisins_distants   = [[] for i in range(nombre)]
@@ -66,18 +66,22 @@ class Nuee:
         de sorte que les animaux voisins de l'animal d'indice 'i'
         aient leurs indices stockés dans voisins[i]
         """
-        for i in range(1, len(self.essaim)):
-            dist = self.essaim[0].distance(self.essaim[i])
 
-            if self.essaim[0].perception[0] > dist:
-                self.voisins_proches[0].append(self.essaim[i])
+        for j in range()
 
-            elif self.essaim[0].perception[1] > dist:
-                self.voisins_moyens[0].append(self.essaim[i])
+            for i in range(1, len(self.essaim)):
+
+                dist = self.essaim[0].distance(self.essaim[i])
+
+                if self.essaim[0].perception[0] > dist:
+                    self.voisins_proches[0].append(i)
+
+                elif self.essaim[0].perception[1] > dist:
+                    self.voisins_moyens[0].append(i)
 
 
-            elif self.essaim[0].perception[2] > dist:
-                self.voisins_distants[0].append(self.essaim[i])
+                elif self.essaim[0].perception[2] > dist:
+                    self.voisins_distants[0].append(i)
 
 
 
@@ -94,7 +98,7 @@ class Nuee:
 
     def alignement(self, indice_animal) :
         """ renvoie un vecteur permettant aux animaux moyennement proches de synchroniser leurs vitesses
-        * la force renvoyée est la moyenne des vitesses des animaux moyennement proches 
+        * la force renvoyée est la moyenne des vitesses des animaux moyennement proches
         * si cette force est trop grande, sa norme est ramenée à Animal.force_max
         """
         liste_voisins = self.voisins_moyens[indice_animal]
