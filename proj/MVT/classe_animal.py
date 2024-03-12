@@ -47,6 +47,7 @@ class Animal:
         self.perception = [30, 100, 200]     # proche, moyen, distant
         self.force = Vecteur(0, 0)
 
+
     def force_alea(self):
         self.force.x = random() - 0.5
         self.force.y = random() - 0.5
@@ -58,18 +59,22 @@ class Animal:
 
     def maj_position(self):
         #self.force_alea()            # test avec une force aléatoire (question 2b)
-        self.position.x += self.vitesse.x
-        self.position.y += self.vitesse.y
-        if self.position.x < 0 or self.position.x > self.l_univers :
-            self.vitesse.x = -self.vitesse.x
-        if self.position.y < 0 or self.position.y > self.h_univers :
-            self.vitesse.y = -self.vitesse.y
         self.vitesse.x += self.force.x
         self.vitesse.y += self.force.y
+
         if self.vitesse.norme() > self.v_max :
             self.vitesse.prodk(self.v_max/self.vitesse.norme())
 
-        #self.force_alea()
+
+        if self.position.x < 0 or self.position.x > self.l_univers :
+            self.vitesse.x = -self.vitesse.x +1
+        if self.position.y < 0 or self.position.y > self.h_univers :
+            self.vitesse.y = -self.vitesse.y +1
+
+        self.position.x += self.vitesse.x
+        self.position.y += self.vitesse.y
+
+
         return self.position
 
     def distance(self, autre):

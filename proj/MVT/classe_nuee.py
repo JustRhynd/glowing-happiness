@@ -99,10 +99,10 @@ class Nuee:
         force_separation = Vecteur(0, 0)
 
         for i in liste_voisins:
-            force_separation.somme(animal.position).diff(self.essaim[i].position)  
+            force_separation.somme(animal.position).diff(self.essaim[i].position)
         if force_separation.norme() > animal.force_max:
             force_separation.prodk(animal.force_max/force_separation.norme())
-        
+
         return force_separation
 
 
