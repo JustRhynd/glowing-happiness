@@ -51,8 +51,9 @@ class Nuee:
 
     def mouvement(self):
         """Met à jour la position de tous les animaux de la nuée"""
-        for animal in self.essaim:
-
+        for i in range(len(self.essaim)):
+            animal = self.essaim[i]
+            self.regles(i)
             animal.maj_position()
         self.voisins_update()
         return self.essaim
@@ -97,6 +98,11 @@ class Nuee:
         animal  = self.essaim[indice_animal]
         force_separation = Vecteur(0, 0)
 
+        for i in liste_voisins:
+            force_separation.somme(animal.position).diff(self.essaim[i].position)
+        if force_separation.norme() > animal.force_max:
+            force_separation.prodk(animal.force_max/force_separation.norme())
+
         return force_separation
 
 
@@ -109,16 +115,12 @@ class Nuee:
         animal = self.essaim[indice_animal]
         force_alignement = Vecteur(0, 0)
 
-        return force_alignement
-
 
     def cohesion(self, indice_animal):
         """ renvoie un vecteur permettant aux animaux distants de se rapprocher """
         liste_voisins = self.voisins_distants[indice_animal]
         animal = self.essaim[indice_animal]
         force_cohesion = Vecteur(0, 0)
-
-        return force_cohesion
 
     def regles(self, indice_animal, sep=5, align=0.5, coh=0.01):
         animal = self.essaim[indice_animal]
@@ -128,3 +130,4 @@ class Nuee:
             animal.force.somme(self.alignement(indice_animal).prodk(align))
         elif self.voisins_distants[indice_animal] !=[]:
             animal.force.somme(self.cohesion(indice_animal).prodk(coh))
+        return animal.force

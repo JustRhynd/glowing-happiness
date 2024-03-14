@@ -40,7 +40,7 @@ class Vecteur:
     def vect_nul(self):
         self.x = 0
         self.y = 0
-        return self.x, self.y
+        return self
     
     def norme(self):
         return sqrt(self.x**2 + self.y**2)
@@ -58,17 +58,17 @@ class Vecteur:
     def oppose(self):
         self.x = -self.x
         self.y = -self.y
-        return self.x, self.y
+        return self
         
     def prodk(self, k):
         self.x = k*self.x
         self.y = k*self.y
-        return self.x, self.y
+        return self
 
     def affectation(self, v):
         self.x = v.x
         self.y = v.y
-        return self.x, self.y
+        return self
     
     def est_egal(self, v):
         return self.x == v.x and self.y == v.y
