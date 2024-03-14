@@ -66,10 +66,12 @@ class Animal:
             self.vitesse.prodk(self.v_max/self.vitesse.norme())
 
 
-        if self.position.x < 0 or self.position.x > self.l_univers :
-            self.vitesse.x = -self.vitesse.x +1
-        if self.position.y < 0 or self.position.y > self.h_univers :
-            self.vitesse.y = -self.vitesse.y +1
+        if self.position.x <= 0 or self.position.x >= self.l_univers :
+            self.force.x *= -1
+            self.vitesse.x *= -1
+        if self.position.y <= 0 or self.position.y >= self.h_univers :
+            self.force.y *= -1
+            self.vitesse.y *= -1
 
         self.position.x += self.vitesse.x
         self.position.y += self.vitesse.y
