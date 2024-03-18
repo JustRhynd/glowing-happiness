@@ -9,7 +9,7 @@ from classe_nuee import *
 LARGEUR_FENETRE = 1300
 HAUTEUR_FENETRE = 700
 RAFRAICHISSEMENT = 0.01
-AFFICHE_VOISINS = True
+AFFICHE_VOISINS = False
 
 
 def animate_ball(nuee):
@@ -18,17 +18,12 @@ def animate_ball(nuee):
     taille = nuee.essaim[0].taille
     sprites = []
     for i in range(len( nuee.essaim)):
-         sprites.append(canvas.create_oval(nuee.essaim[i].position.x - taille,
-            nuee.essaim[i].position.y - taille,
-            nuee.essaim[i].position.x + taille,
-            nuee.essaim[i].position.y + taille,
-            fill="Black", outline="Black",
-            width=1))
+         A = canvas.create_image(nuee.essaim[i].position.x, nuee.essaim[i].position.y, image = tkinter.PhotoImage(file = "GladiusPiratePA.png"))
+         sprites.append(A)
 
 
     if AFFICHE_VOISINS :
-        canvas.itemconfig(sprites[0], fill='red', outline = "red",
-                        width = 2)
+        canvas.itemconfig(sprites[0], fill='red', outline = "red", width = 2)
         cercle_0 = canvas.create_oval(
                 nuee.essaim[0].position.x - nuee.essaim[0].perception[0],
                 nuee.essaim[0].position.y - nuee.essaim[0].perception[0],
@@ -59,22 +54,24 @@ def animate_ball(nuee):
         # Test des voisins : enlever les triples guillemets pour le bloc ci-dessous
         if AFFICHE_VOISINS :
             for i in range(1, len(nuee.essaim)):
+                #ico1 = tkinter.PhotoImage(file = "GladiusPiratePA.png")
+                #A = canvas.create_image(nuee.essaim[i].position.x, nuee.essaim[i].position.y, image = tkinter.PhotoImage(file = "GladiusPiratePA.png"))
                 if i in nuee.voisins_proches[0] :
-                    canvas.create_image(nuee.essaim[i].position.x, nuee.essaim[i].position.y, image = ico1)
-                    canvas.itemconfig(sprites[i], fill='red', outline = 'red', width = 1)
+                    canvas.move(sprites[i], nuee.essaim[i].position.x, nuee.essaim[i].position.y)
+                    #canvas.itemconfig(sprites[i], fill='red', outline = 'red', width = 1)
                 elif i in nuee.voisins_moyens[0]:
-                    canvas.itemconfig(sprites[i], fill='blue', outline = 'blue', width = 1) # color
+                    canvas.move(sprites[i], nuee.essaim[i].position.x, nuee.essaim[i].position.y)
+                    #canvas.itemconfig(sprites[i], fill='blue', outline = 'blue', width = 1) # color
                 elif i in nuee.voisins_distants[0] :
-                    canvas.itemconfig(sprites[i], fill='magenta', outline = 'magenta', width = 1)
+                    canvas.move(sprites[i], nuee.essaim[i].position.x, nuee.essaim[i].position.y)
+                    #canvas.itemconfig(sprites[i], fill='magenta', outline = 'magenta', width = 1)
                 else :
-                    canvas.itemconfig(sprites[i], fill='black', outline="Black", width=1)
+                    canvas.move(sprites[i], nuee.essaim[i].position.x, nuee.essaim[i].position.y)
+                    #canvas.itemconfig(sprites[i], fill='black', outline="Black", width=1)
 
         for i in range(len(mvts)) :
             canvas.coords(sprites[i],
-                          nuee.essaim[i].position.x - taille,
-                          nuee.essaim[i].position.y - taille,
-                          nuee.essaim[i].position.x + taille,
-                          nuee.essaim[i].position.y + taille)
+                          nuee.essaim[i].position.x, nuee.essaim[i].position.y)
 
         if AFFICHE_VOISINS:
             canvas.coords(cercle_0,
@@ -107,5 +104,6 @@ fenetre.geometry(f'{LARGEUR_FENETRE}x{HAUTEUR_FENETRE}')
 
 canvas = tkinter.Canvas(fenetre, width = l_univers, height = h_univers, bg = "cyan")
 canvas.pack(anchor = tkinter.CENTER, expand=True)
+Mico = tkinter.PhotoImage(file = "C2PA.png")
 
 animate_ball(nuee)
