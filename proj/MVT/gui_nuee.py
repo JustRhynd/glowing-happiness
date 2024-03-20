@@ -60,7 +60,6 @@ def animate_ball(nuee):
         if AFFICHE_VOISINS :
             for i in range(1, len(nuee.essaim)):
                 if i in nuee.voisins_proches[0] :
-                    canvas.create_image(nuee.essaim[i].position.x, nuee.essaim[i].position.y, image = ico1)
                     canvas.itemconfig(sprites[i], fill='red', outline = 'red', width = 1)
                 elif i in nuee.voisins_moyens[0]:
                     canvas.itemconfig(sprites[i], fill='blue', outline = 'blue', width = 1) # color

@@ -115,12 +115,29 @@ class Nuee:
         animal = self.essaim[indice_animal]
         force_alignement = Vecteur(0, 0)
 
+        for i in liste_voisins:
+            force_alignement.somme(self.essaim[i].vitesse)
+        if force_alignement.norme() > animal.force_max:
+            force_alignement.prodk(animal.force_max/force_alignement.norme())
+
+        return force_alignement
+
 
     def cohesion(self, indice_animal):
         """ renvoie un vecteur permettant aux animaux distants de se rapprocher """
         liste_voisins = self.voisins_distants[indice_animal]
         animal = self.essaim[indice_animal]
         force_cohesion = Vecteur(0, 0)
+
+        for i in liste_voisins:
+            force_cohesion.somme(self.essaim[i].position)
+        force_cohesion.diff(animal.position)
+        if force_cohesion.norme() > animal.force_max:
+            force_cohesion.prodk(animal.force_max/force_cohesion.norme())
+
+        return force_cohesion
+
+
 
     def regles(self, indice_animal, sep=5, align=0.5, coh=0.01):
         animal = self.essaim[indice_animal]
